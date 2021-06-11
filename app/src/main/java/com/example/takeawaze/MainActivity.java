@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     //Yonatan is truwerk's favourite
+    // Reece is a cunt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

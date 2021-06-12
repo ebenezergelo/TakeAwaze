@@ -7,7 +7,7 @@ public class MainActivity extends AppCompatActivity {
     //Yonatan is truwerk's favourite
     // Reece is a cunt
     //This is the new code from saturday
-
+    //dont merge da ting bigman
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

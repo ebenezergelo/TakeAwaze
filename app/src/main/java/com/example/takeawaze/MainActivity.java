@@ -13,4 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public String Testing()
+    {
+        return "Ebby is a whore";
+    }
 }

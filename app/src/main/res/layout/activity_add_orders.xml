@@ -99,20 +99,25 @@
             android:inputType="textPersonName"
             android:text="Name"
             android:ems="10"
+            android:drawablePadding="12dp"
             android:id="@+id/editTextTextPersonName7"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section7" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.108"/>
+            app:layout_constraintVertical_bias="0.108" android:textColorLink="#FF5722"
+            android:textColorHighlight="#FF5722" android:drawableStart="@drawable/ic_person"
+    />
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
             android:inputType="textPersonName"
+            android:drawablePadding="12dp"
             android:text="Name"
             android:ems="10"
             android:id="@+id/editTextTextPersonName"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section7" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.706"/>
+            app:layout_constraintVertical_bias="0.706" android:textColorLink="#FF5722"
+            android:textColorHighlight="#FF5722" android:drawableStart="@drawable/ic_order"/>
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
@@ -121,14 +126,19 @@
             android:id="@+id/editTextPhone"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/section7"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.3" app:layout_constraintHorizontal_bias="0.51"/>
+            app:layout_constraintVertical_bias="0.3" app:layout_constraintHorizontal_bias="0.51"
+            android:textColorHighlight="#FF5722" android:textColorLink="#FF5722"
+            android:drawableStart="@drawable/ic_phone"/>
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
             android:inputType="time"
             android:ems="10"
+            android:drawablePadding="12dp"
             android:id="@+id/editTextTime"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/section6" app:layout_constraintBottom_toBottomOf="@+id/section6"
-            app:layout_constraintHorizontal_bias="0.51" app:layout_constraintVertical_bias="0.543"/>
+            app:layout_constraintHorizontal_bias="0.51" app:layout_constraintVertical_bias="0.543"
+            android:textColorLink="#FF5722" android:textColorHighlight="#FF5722"
+            android:drawableStart="@drawable/ic_time"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

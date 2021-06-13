@@ -11,7 +11,7 @@
             android:layout_width="410dp"
             android:layout_height="470dp" android:id="@+id/section2"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#F2F2F2" android:layout_marginTop="4dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="1.0"/>
@@ -80,17 +80,23 @@
             android:inputType="textPersonName"
             android:text="@string/name"
             android:ems="10"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_person"
             android:id="@+id/editTextTextPersonName2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
-            app:layout_constraintVertical_bias="0.204" android:autofillHints=""/>
+            app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorHighlight="#FF5722"
+            android:textColorLink="#FF5722"/>
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
             android:inputType="textPassword"
             android:ems="10"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic__password"
             android:id="@+id/editTextTextPassword"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/section2" app:layout_constraintTop_toBottomOf="@+id/section1"
-            app:layout_constraintVertical_bias="0.491" android:autofillHints=""/>
+            app:layout_constraintVertical_bias="0.491" android:autofillHints="" android:textColorHighlight="#FF5722"
+            android:textColorLink="#FF5722"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

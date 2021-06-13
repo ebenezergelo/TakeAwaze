@@ -8,10 +8,9 @@
         tools:context=".MainScreen">
 
     <View
-            android:layout_width="422dp"
-            android:layout_height="525dp" android:id="@+id/section2"
+            android:layout_width="411dp"
+            android:layout_height="422dp" android:id="@+id/section2"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#F2F2F2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintTop_toBottomOf="@+id/section1"/>
@@ -70,12 +69,15 @@
             android:layout_width="319dp"
             android:layout_height="51dp"
             android:inputType="textPersonName"
+            android:drawablePadding="12dp"
             android:text="@string/name"
+            android:drawableStart="@drawable/ic_person"
             android:ems="10"
             android:id="@+id/editTextTextPersonName2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
-            app:layout_constraintVertical_bias="0.204" android:autofillHints=""/>
+            app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorLink="#FF5722"
+            android:textColorHighlight="#FF5722"/>
     <ImageButton
             android:layout_width="38dp"
             android:layout_height="36dp" app:srcCompat="@drawable/ic_back" android:id="@+id/back"
@@ -88,10 +90,13 @@
             android:layout_width="319dp"
             android:layout_height="51dp"
             android:inputType="phone"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:id="@+id/editTextPhone2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/section2" android:layout_marginTop="189dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.285"/>
+            app:layout_constraintVertical_bias="0.0" android:textColorLink="#FF5722"
+            android:textColorHighlight="#FF5722"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,6 @@
             android:layout_width="417dp"
             android:layout_height="585dp" android:id="@+id/section3"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#F2F2F2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="1.0" app:layout_constraintTop_toTopOf="parent"/>

@@ -1,6 +1,5 @@
 package com.example.takeawaze;
 
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import org.json.JSONArray;
@@ -18,17 +17,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        MainActivity.this.runOnUiThread(new Runnable() {
+        public void run() {
+         try {
+          popOrders();
+          popStaffs();
+          popUsers();
+         } catch (IOException | JSONException e) {
+          e.printStackTrace();
+         }
 
+        }
+     });
+    }
     public void popUsers() throws IOException, JSONException {
-     String json = php.getRequest("");
+     String json = php.getRequest("", MainActivity.this);
      JSONArray ja = new JSONArray(json);
     }
-    public void popStaffs() throws IOException {
-     String json = php.getRequest("");
+    public void popStaffs() throws IOException, JSONException {
+     String json = php.getRequest("",MainActivity.this);
+     JSONArray ja = new JSONArray(json);
     }
-    public void popOrders() throws IOException {
-     String json = php.getRequest("");
+    public void popOrders() throws IOException, JSONException {
+     String json = php.getRequest("",MainActivity.this);
+     JSONArray ja = new JSONArray(json);
     }
 
 }

@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainScreen">
+        tools:context=".StaffLogIN" android:id="@+id/userLogIn">
 
     <View
             android:layout_width="411dp"
@@ -14,6 +14,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintTop_toBottomOf="@+id/section1"/>
+    <EditText
+            android:layout_width="319dp"
+            android:layout_height="51dp"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:id="@+id/custName"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/section7" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.108" android:textColorLink="#FF5722"
+            android:textColorHighlight="#FF5722" android:drawableStart="@drawable/ic_person"
+            android:layout_marginBottom="288dp"/>
     <View
             android:layout_width="411dp"
             android:layout_height="309dp" android:id="@+id/section1"
@@ -43,7 +56,7 @@
     <Button
             android:text="Log In"
             android:layout_width="268dp"
-            android:layout_height="62dp" android:id="@+id/logIn"
+            android:layout_height="62dp" android:id="@+id/logIN"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.496" app:layout_constraintBottom_toBottomOf="@+id/pageBackground"
@@ -64,28 +77,7 @@
             android:layout_height="wrap_content" android:id="@+id/textView3"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
-            app:layout_constraintHorizontal_bias="0.145" app:layout_constraintVertical_bias="0.403"/>
-    <EditText
-            android:layout_width="319dp"
-            android:layout_height="51dp"
-            android:inputType="textPersonName"
-            android:drawablePadding="12dp"
-            android:text="@string/name"
-            android:drawableStart="@drawable/ic_person"
-            android:ems="10"
-            android:id="@+id/editTextTextPersonName2"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
-            app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorLink="#FF5722"
-            android:textColorHighlight="#FF5722"/>
-    <ImageButton
-            android:layout_width="38dp"
-            android:layout_height="36dp" app:srcCompat="@drawable/ic_back" android:id="@+id/back"
-            android:background="#00FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/section1"
-            app:layout_constraintHorizontal_bias="0.067" app:layout_constraintVertical_bias="0.057"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintHorizontal_bias="0.145" app:layout_constraintVertical_bias="0.418"/>
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
@@ -93,7 +85,7 @@
             android:drawableStart="@drawable/ic_phone"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:id="@+id/editTextPhone2"
+            android:id="@+id/userPhone"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/section2" android:layout_marginTop="189dp"
             app:layout_constraintBottom_toBottomOf="parent"

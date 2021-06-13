@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainScreen extends AppCompatActivity {
+public class StaffLogIN extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

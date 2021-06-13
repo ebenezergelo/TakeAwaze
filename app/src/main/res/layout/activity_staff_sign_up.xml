@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainScreen">
+        tools:context=".StaffLogIN" android:id="@+id/staffSignUP">
 
     <View
             android:layout_width="410dp"
@@ -34,14 +34,6 @@
             android:textColor="#000000" android:id="@+id/textView8" android:textSize="25sp"
             android:fontFamily="sans-serif-condensed"
             android:textAlignment="center"/>
-    <ImageButton
-            android:layout_width="38dp"
-            android:layout_height="36dp" app:srcCompat="@drawable/ic_back" android:id="@+id/imageButton2"
-            android:background="#00FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/section1"
-            app:layout_constraintHorizontal_bias="0.067" app:layout_constraintVertical_bias="0.057"
-            app:layout_constraintBottom_toBottomOf="parent"/>
     <ImageView
             android:layout_width="113dp"
             android:layout_height="166dp" app:srcCompat="@drawable/logo" android:id="@+id/logo2"
@@ -52,7 +44,7 @@
     <Button
             android:text="Sign Up"
             android:layout_width="268dp"
-            android:layout_height="62dp" android:id="@+id/logIn"
+            android:layout_height="62dp" android:id="@+id/logIN"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.496" app:layout_constraintBottom_toBottomOf="@+id/pageBackground"
@@ -82,7 +74,7 @@
             android:ems="10"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_person"
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/custUName"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
             app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorHighlight="#FF5722"
@@ -94,7 +86,7 @@
             android:ems="10"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic__password"
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/passWord"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/section2" app:layout_constraintTop_toBottomOf="@+id/section1"
             app:layout_constraintVertical_bias="0.491" android:autofillHints="" android:textColorHighlight="#FF5722"

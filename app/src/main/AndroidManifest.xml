@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".StaffSignUp">
         </activity>
-        <activity android:name=".MainScreen">
+        <activity android:name=".StaffLogIN">
         </activity>
 
         <meta-data

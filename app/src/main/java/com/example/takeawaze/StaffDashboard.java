@@ -3,15 +3,11 @@ package com.example.takeawaze;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
-    //Yonatan is truwerk's favourite
-    // Reece is a cunt
-    //This is the new code from saturday
-    //dont merge da ting bigman
+public class StaffDashboard extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_dashboard);
     }
-
 }

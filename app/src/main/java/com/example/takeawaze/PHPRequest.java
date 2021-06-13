@@ -1,5 +1,6 @@
 package com.example.takeawaze;
 
+import android.app.Activity;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

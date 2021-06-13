@@ -2,16 +2,21 @@ package com.example.takeawaze;
 
 public class Order {
     public int ORDER_NUM;
-    public String USER_NUM;
-    public String STAFF_NUM;
+    public String USER_NAME;
+    public String STAFF_NAME;
+    public String RESTAURANT;
     public String STATUS;
+    public String TIME;
     public boolean RATING;
 
-    public Order(int ORDER_NUM, String USER_NUM, String STAFF_NUM, String STATUS, boolean RATING) {
+    public Order(int ORDER_NUM, String USER_NAME, String STAFF_NAME,
+                 String RESTAURANT, String STATUS, String TIME, boolean RATING) {
         this.ORDER_NUM = ORDER_NUM;
-        this.USER_NUM = USER_NUM;
-        this.STAFF_NUM = STAFF_NUM;
+        this.USER_NAME = USER_NAME;
+        this.STAFF_NAME = STAFF_NAME;
+        this.RESTAURANT = RESTAURANT;
         this.STATUS = STATUS;
+        this.TIME = TIME;
         this.RATING = RATING;
     }
 
@@ -19,16 +24,24 @@ public class Order {
         return ORDER_NUM;
     }
 
-    public String getUSER_NUM() {
-        return USER_NUM;
+    public String getUSER_NAME() {
+        return USER_NAME;
     }
 
-    public String getSTAFF_NUM() {
-        return STAFF_NUM;
+    public String getSTAFF_NAME() {
+        return STAFF_NAME;
+    }
+
+    public String getRESTAURANT() {
+        return RESTAURANT;
     }
 
     public String getSTATUS() {
         return STATUS;
+    }
+
+    public String getTIME() {
+        return TIME;
     }
 
     public boolean isRATING() {
@@ -39,16 +52,24 @@ public class Order {
         this.ORDER_NUM = ORDER_NUM;
     }
 
-    public void setUSER_NUM(String USER_NUM) {
-        this.USER_NUM = USER_NUM;
+    public void setUSER_NAME(String USER_NAME) {
+        this.USER_NAME = USER_NAME;
     }
 
-    public void setSTAFF_NUM(String STAFF_NUM) {
-        this.STAFF_NUM = STAFF_NUM;
+    public void setSTAFF_NAME(String STAFF_NAME) {
+        this.STAFF_NAME = STAFF_NAME;
+    }
+
+    public void setRESTAURANT(String RESTAURANT) {
+        this.RESTAURANT = RESTAURANT;
     }
 
     public void setSTATUS(String STATUS) {
         this.STATUS = STATUS;
+    }
+
+    public void setTIME(String TIME) {
+        this.TIME = TIME;
     }
 
     public void setRATING(boolean RATING) {

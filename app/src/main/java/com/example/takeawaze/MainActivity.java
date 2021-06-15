@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     new RequestHandle() {
                         @Override
                         public void processResponse(String response) throws JSONException {
-                            popUsers(response);
+                            popStaffs(response);
                         }
                     });
         } catch (IOException e) {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     new RequestHandle() {
                         @Override
                         public void processResponse(String response) throws JSONException {
-                            popUsers(response);
+                            popOrders(response);
                         }
                     });
         } catch (IOException e) {

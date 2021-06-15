@@ -25,33 +25,45 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_orders);
+        setContentView(R.layout.activity_main);
         try {
-            popUsers();
+            php.doRequest(MainActivity.this, "https://lamp.ms.wits.ac.za/home/s2345362/popuser.php",
+                    new RequestHandle() {
+                        @Override
+                        public void processResponse(String response) throws JSONException {
+                            popUsers(response);
+                        }
+                    });
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         }
+
         try {
-            popStaffs();
+            php.doRequest(MainActivity.this, "https://lamp.ms.wits.ac.za/home/s2345362/popstaff.php",
+                    new RequestHandle() {
+                        @Override
+                        public void processResponse(String response) throws JSONException {
+                            popUsers(response);
+                        }
+                    });
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         }
+
         try {
-            popOrders();
+            php.doRequest(MainActivity.this, "https://lamp.ms.wits.ac.za/home/s2345362/poporder.php",
+                    new RequestHandle() {
+                        @Override
+                        public void processResponse(String response) throws JSONException {
+                            popUsers(response);
+                        }
+                    });
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-
-    public void popUsers() throws IOException, JSONException {
-        String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");
+    public void popUsers(String json) throws JSONException {
         JSONArray ja = new JSONArray(json);
         String USER_PHONE;
         String USER_NAME;
@@ -64,8 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void popStaffs() throws IOException, JSONException {
-        String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popstaff.php");
+    public void popStaffs(String json) throws JSONException {
         JSONArray ja = new JSONArray(json);
         String STAFF_NUM;
         String STAFF_NAME;
@@ -82,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void popOrders() throws IOException, JSONException {
-        String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/poporder.php");
+    public void popOrders(String json) throws JSONException {
         JSONArray ja = new JSONArray(json);
         int ORDER_NUM;
         String USER_NAME;
@@ -106,67 +116,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void userLogin(View v) {
-        Button loginBtn = (Button) findViewById(R.id.logIN);
-
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_user_login);
-                boolean custLoginToken = false;
-                EditText n = (EditText) findViewById(R.id.custName);
-                EditText p = (EditText) findViewById(R.id.userPhone);
-                String custLoginName = n.getText().toString();
-                String custLoginPhone = p.getText().toString();
-                String json = null;
-                JSONArray ja = null;
-                try {
-                    json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");
-                    ja = new JSONArray(json);
-                } catch (IOException | JSONException e) {
-                    e.printStackTrace();
-                }
-                //JSONArray ja = new JSONArray(json);
-                String USER_PHONE = "";
-                String USER_NAME = "";
-                for (int i = 0; i < ja.length(); i++) {
-                    JSONObject jo = null;
-                    try {
-                        jo = ja.getJSONObject(i);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        USER_PHONE = jo.getString("USER_PHONE");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        USER_NAME = jo.getString("USER_NAME");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE)) {
-                        custLoginToken = true;
-                        break;
-                    }
-                }
-                if (custLoginToken) {
-                    setContentView(R.layout.activity_user_login);
-                } else {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Invalid Login Details :(";
-                    int duration = Toast.LENGTH_LONG;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                }
-            }
-        });
-    }
-
     public void staffLogIn(View v) {
         setContentView(R.layout.activity_main_screen);
+    }
+    public void userLogIn(View v) {
+        setContentView(R.layout.activity_user_login);
     }
 
 

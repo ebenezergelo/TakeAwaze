@@ -19,18 +19,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainActivity.this.runOnUiThread(new Runnable() {
-        public void run() {
-         try {
-          popOrders();
-          popStaffs();
-          popUsers();
-         } catch (IOException | JSONException e) {
-          e.printStackTrace();
-         }
-
+        try {
+            popUsers();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-     });
+        try {
+            popStaffs();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            popOrders();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
     public void popUsers() throws IOException, JSONException {
      String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");

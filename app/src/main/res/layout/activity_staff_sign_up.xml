@@ -74,7 +74,7 @@
             android:ems="10"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_person"
-            android:id="@+id/custUName"
+            android:id="@+id/staffName"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
             app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorHighlight="#FF5722"

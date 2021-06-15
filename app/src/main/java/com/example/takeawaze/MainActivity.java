@@ -1,6 +1,7 @@
 package com.example.takeawaze;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,9 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public ArrayList<User> users = new ArrayList<>();
-    public ArrayList<Staff> staffs = new ArrayList<>();
-    public ArrayList<Order> orders = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<Staff> staffs = new ArrayList<>();
+    public static ArrayList<Order> orders = new ArrayList<>();
     PHPRequest php = new PHPRequest();
 
     @Override
@@ -117,9 +118,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void staffLogIn(View v) {
-        setContentView(R.layout.activity_main_screen);
+        Intent intent = new Intent(this, StaffLogIN.class);
+        startActivity(intent);
     }
     public void userLogIn(View v) {
-        setContentView(R.layout.activity_user_login);
+        Intent intent = new Intent(this, UserLogin.class);
+        startActivity(intent);
     }
 }

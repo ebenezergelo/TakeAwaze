@@ -82,7 +82,7 @@
             android:text="@string/name"
             android:ems="10"
             android:drawablePadding="12dp"
-            android:id="@+id/custUName"
+            android:id="@+id/staffName"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
             app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorLink="#FF5722"
@@ -97,5 +97,5 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/section2" app:layout_constraintTop_toBottomOf="@+id/section1"
             app:layout_constraintVertical_bias="0.491" android:autofillHints=""
-            android:drawableStart="@drawable/ic__password"/>
+            android:drawableStart="@drawable/ic__password" android:onClick="staffLogIn"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,8 @@ public class User {
     public String USER_PHONE;
     public String USER_NAME;
 
-    public User(String USER_CELLNUM, String USER_NAME) {
-        this.USER_PHONE = USER_CELLNUM;
+    public User(String USER_PHONE, String USER_NAME) {
+        this.USER_PHONE = USER_PHONE;
         this.USER_NAME = USER_NAME;
     }
 
@@ -17,8 +17,8 @@ public class User {
         return USER_NAME;
     }
 
-    public void setUSER_CELLNUM(String USER_CELLNUM) {
-        this.USER_PHONE = USER_CELLNUM;
+    public void setUSER_CELLNUM(String USER_PHONE) {
+        this.USER_PHONE = USER_PHONE;
     }
 
     public void setUSER_NAME(String USER_NAME) {

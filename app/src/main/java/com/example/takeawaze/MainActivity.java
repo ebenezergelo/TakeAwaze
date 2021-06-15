@@ -122,6 +122,4 @@ public class MainActivity extends AppCompatActivity {
     public void userLogIn(View v) {
         setContentView(R.layout.activity_user_login);
     }
-
-
 }

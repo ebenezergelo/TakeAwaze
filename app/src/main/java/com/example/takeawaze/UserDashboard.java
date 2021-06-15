@@ -4,7 +4,11 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class UserDashboard extends AppCompatActivity {
+    MainActivity m = new MainActivity();
+    ArrayList<Order> orders = m.orders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

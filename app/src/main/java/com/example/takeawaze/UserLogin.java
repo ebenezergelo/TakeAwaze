@@ -30,9 +30,7 @@ public class UserLogin extends AppCompatActivity {
         Button loginBtn = (Button) findViewById(R.id.logIN);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                userLogin(v);
-            }
+            public void onClick(View v) { userLogin(v); }
         });
 
         public void userLogin(View v) {
@@ -44,31 +42,10 @@ public class UserLogin extends AppCompatActivity {
             EditText p = (EditText) findViewById(R.id.userPhone);
             String custLoginName = n.getText().toString();
             String custLoginPhone = p.getText().toString();
-            String json = null;
-            try {
-                json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            JSONArray ja = null;
-            try {
-                ja = new JSONArray(json);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
             String USER_PHONE = null;
             String USER_NAME = null;
-            for (int i = 0; i < ja.length(); i++) {
-                try {
-                    JSONObject jo = ja.getJSONObject(i);
-                    USER_PHONE = jo.getString("USER_PHONE");
-                    USER_NAME = jo.getString("USER_NAME");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-//                JSONObject jo = ja.getJSONObject(i);
-//                USER_PHONE = jo.getString("USER_PHONE");
-//                USER_NAME = jo.getString("USER_NAME");
+            for (int i = 0; i < m.users.size(); i++) {
+                (m.users.get(i)).getUSER_NAME();
                 if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE)) {
                     custLoginToken = true;
                     break;

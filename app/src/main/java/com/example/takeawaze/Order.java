@@ -7,10 +7,10 @@ public class Order {
     public String RESTAURANT;
     public String STATUS;
     public String TIME;
-    public boolean RATING;
+    public int RATING;
 
     public Order(int ORDER_NUM, String USER_NAME, String STAFF_NAME,
-                 String RESTAURANT, String STATUS, String TIME, boolean RATING) {
+                 String RESTAURANT, String STATUS, String TIME, int RATING) {
         this.ORDER_NUM = ORDER_NUM;
         this.USER_NAME = USER_NAME;
         this.STAFF_NAME = STAFF_NAME;
@@ -44,7 +44,7 @@ public class Order {
         return TIME;
     }
 
-    public boolean isRATING() {
+    public int isRATING() {
         return RATING;
     }
 
@@ -72,7 +72,7 @@ public class Order {
         this.TIME = TIME;
     }
 
-    public void setRATING(boolean RATING) {
+    public void setRATING(int RATING) {
         this.RATING = RATING;
     }
 }

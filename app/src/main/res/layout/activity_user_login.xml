@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".StaffLogIN" android:id="@+id/userLogIn">
+        tools:context=".UserLogin" android:id="@+id/userLogIn">
 
     <View
             android:layout_width="411dp"
@@ -59,6 +59,7 @@
             android:layout_height="62dp" android:id="@+id/logIN"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:onClick="usrLogIn"
             app:layout_constraintHorizontal_bias="0.496" app:layout_constraintBottom_toBottomOf="@+id/pageBackground"
             app:layout_constraintVertical_bias="0.935" android:textColor="#FFFFFF"
             android:background="@drawable/orange_corner"

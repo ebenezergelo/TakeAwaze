@@ -106,39 +106,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void userLogin(View v) throws IOException, JSONException {
-        //Button loginBtn = (Button) findViewById(R.id.logIN);
-        setContentView(R.layout.activity_user_login);
-        boolean custLoginToken = false;
-        EditText n = (EditText) findViewById(R.id.custName);
-        EditText p = (EditText) findViewById(R.id.userPhone);
-        String custLoginName = n.getText().toString();
-        String custLoginPhone = p.getText().toString();
-        String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");
-        JSONArray ja = new JSONArray(json);
-        String USER_PHONE;
-        String USER_NAME;
-        for (int i = 0; i < ja.length(); i++) {
-            JSONObject jo = ja.getJSONObject(i);
-            USER_PHONE = jo.getString("USER_PHONE");
-            USER_NAME = jo.getString("USER_NAME");
-            if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE))
-            {
-                custLoginToken = true;
-                break;
-            }
-        }
-        if (custLoginToken) {
-            setContentView(R.layout.activity_user_login);
-        } else {
-            Context context = getApplicationContext();
-            CharSequence text = "Invalid Login Details :(";
-            int duration = Toast.LENGTH_LONG;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        }
-    }
+//    public void userLogin(View v) throws IOException, JSONException {
+//        //Button loginBtn = (Button) findViewById(R.id.logIN);
+//        setContentView(R.layout.activity_user_login);
+//        boolean custLoginToken = false;
+//        EditText n = (EditText) findViewById(R.id.custName);
+//        EditText p = (EditText) findViewById(R.id.userPhone);
+//        String custLoginName = n.getText().toString();
+//        String custLoginPhone = p.getText().toString();
+//        String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");
+//        JSONArray ja = new JSONArray(json);
+//        String USER_PHONE;
+//        String USER_NAME;
+//        for (int i = 0; i < ja.length(); i++) {
+//            JSONObject jo = ja.getJSONObject(i);
+//            USER_PHONE = jo.getString("USER_PHONE");
+//            USER_NAME = jo.getString("USER_NAME");
+//            if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE))
+//            {
+//                custLoginToken = true;
+//                break;
+//            }
+//        }
+//        if (custLoginToken) {
+//            setContentView(R.layout.activity_user_login);
+//        } else {
+//            Context context = getApplicationContext();
+//            CharSequence text = "Invalid Login Details :(";
+//            int duration = Toast.LENGTH_LONG;
+//
+//            Toast toast = Toast.makeText(context, text, duration);
+//            toast.show();
+//        }
+//    }
 
     public void staffLogIn(View v) {
         setContentView(R.layout.activity_main_screen);

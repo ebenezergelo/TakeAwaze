@@ -64,7 +64,7 @@
             android:background="@drawable/orange_corner"
             android:paddingLeft="30dp" android:paddingRight="30dp" android:textAllCaps="false" android:textSize="16sp"
             android:layout_marginTop="600dp"
-            android:onClick="userLogin"/>
+    />
 
     <TextView
             android:text="@string/username"

@@ -19,21 +19,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        MainActivity.this.runOnUiThread(new Runnable() {
-//        public void run() {
-//         try {
-//          popOrders();
-//          popStaffs();
-//          popUsers();
-//         } catch (IOException | JSONException e) {
-//          e.printStackTrace();
-//         }
-//
-//        }
-//     });
+        MainActivity.this.runOnUiThread(new Runnable() {
+        public void run() {
+         try {
+          popOrders();
+          popStaffs();
+          popUsers();
+         } catch (IOException | JSONException e) {
+          e.printStackTrace();
+         }
+
+        }
+     });
     }
     public void popUsers() throws IOException, JSONException {
-     String json = php.getRequest("");
+     String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popuser.php");
      JSONArray ja = new JSONArray(json);
         String USER_PHONE;
         String USER_NAME;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void popStaffs() throws IOException, JSONException {
-     String json = php.getRequest("");
+     String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/popstaff.php");
      JSONArray ja = new JSONArray(json);
          String STAFF_NUM;
          String STAFF_NAME;
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void popOrders() throws IOException, JSONException {
-     String json = php.getRequest("");
+     String json = php.getRequest("https://lamp.ms.wits.ac.za/home/s2345362/poporder.php");
      JSONArray ja = new JSONArray(json);
          int ORDER_NUM;
          String USER_NAME;

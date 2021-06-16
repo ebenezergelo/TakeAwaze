@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, StaffLogIN.class);
         startActivity(intent);
     }
+
     public void userLogIn(View v) {
         Intent intent = new Intent(this, UserLogin.class);
         startActivity(intent);

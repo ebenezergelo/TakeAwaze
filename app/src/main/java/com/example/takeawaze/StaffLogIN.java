@@ -55,5 +55,10 @@ public class StaffLogIN extends AppCompatActivity {
             toast.show();
         }
     }
+    public void signUp(View v)
+    {
+        Intent intent = new Intent(this, StaffSignUp.class);
+        startActivity(intent);
+    }
 
 }

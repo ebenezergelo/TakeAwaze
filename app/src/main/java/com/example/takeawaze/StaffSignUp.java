@@ -1,18 +1,19 @@
 package com.example.takeawaze;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
+import okhttp3.*;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 
 public class StaffSignUp extends AppCompatActivity {
     MainActivity m;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +26,7 @@ public class StaffSignUp extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
     }
 
-    public void staffSignUp(View v) {
-        String STAFF_NUM;
-        String STAFF_NAME;
-        String RESTAURANT;
-        String STAFF_PASSWORD;
-//         String url =
-//                 "https://lamp.ms.wits.ac.za/home/s2345362/addStaff.php?num=245676&name=Reece%20Lazo&rest=Habesha%20Rest&pass=Reecie69";
+    public void staffSignUp(View v) throws IOException {
         EditText staNum = (EditText) findViewById(R.id.staffNum);
         EditText staName = (EditText) findViewById(R.id.staffName);
         EditText rest = (EditText) findViewById(R.id.restaurant);
@@ -44,7 +39,7 @@ public class StaffSignUp extends AppCompatActivity {
             if (staLoginName.length() <= 20 && staLoginName.length() > 0) {
                 if (restaurantName.length() <= 35 && restaurantName.length() > 0) {
                     if (passW2.length() <= 20 && passW2.length() > 0) {
-                        post(staLoginNum, staLoginName, restaurantName, passW2);
+//                        post(staLoginNum, staLoginName, restaurantName, passW2);
                     } else {
                         Context context = getApplicationContext();
                         CharSequence text = "Invalid password entered :(";
@@ -56,38 +51,23 @@ public class StaffSignUp extends AppCompatActivity {
                     Context context = getApplicationContext();
                     CharSequence text = "Invalid restaurant name entered :(";
                     int duration = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                }
-            } else {
-                Context context = getApplicationContext();
-                CharSequence text = "Invalid name entered :(";
-                int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
-        } else {
-            Context context = getApplicationContext();
-            CharSequence text = "Invalid staff number entered :(";
-            int duration = Toast.LENGTH_LONG;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        }
-        //validate if the staff is there if not call call post
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
-
-    public void post(String STAFF_NUM,
-                     String STAFF_NAME,
-                     String RESTAURANT,
-                     String STAFF_PASSWORD) {
-        RequestBody formBody = new FormBody.Builder()
-                .add("brand", "")
-                .build();
-
-        Request request = new Request.Builder()
-                .url("https://lamp.ms.wits.ac.za/home/s2345362/addStaff.php")
-                .post(formBody)
-                .build();
+} else {
+        Context context = getApplicationContext();
+        CharSequence text = "Invalid name entered :(";
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        }
+        } else {
+        Context context = getApplicationContext();
+        CharSequence text = "Invalid staff number entered :(";
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        }
 
     }
 }

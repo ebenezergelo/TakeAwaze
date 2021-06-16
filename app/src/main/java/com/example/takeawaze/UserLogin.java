@@ -1,5 +1,5 @@
 package com.example.takeawaze;
-
+//
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;

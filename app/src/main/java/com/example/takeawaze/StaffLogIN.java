@@ -28,15 +28,15 @@ public class StaffLogIN extends AppCompatActivity {
     public void staffLogIn(View v)
     {
         boolean LoginToken = false;
-        EditText n = (EditText) findViewById(R.id.staffName);
-        EditText p = (EditText) findViewById(R.id.passWord);
+        EditText n = (EditText) findViewById(R.id.staffNum);
+        EditText p = (EditText) findViewById(R.id.staffName);
         String custLoginName = n.getText().toString();
         String custLoginPhone = p.getText().toString();
         String STAFF_NAME = null;
         String STAFF_PASSWORD = null;
-        for (int i = 0; i < m.staffs.size(); i++) {
-            STAFF_NAME = m.staffs.get(i).STAFF_NAME;
-            STAFF_PASSWORD = m.staffs.get(i).STAFF_PASSWORD;
+        for (int i = 0; i < staffs.size(); i++) {
+            STAFF_NAME = staffs.get(i).STAFF_NAME;
+            STAFF_PASSWORD = staffs.get(i).STAFF_PASSWORD;
             if (custLoginName.equals(STAFF_NAME) && custLoginPhone.equals(STAFF_PASSWORD)) {
                 LoginToken = true;
                 loggedStaff = staffs.get(i);

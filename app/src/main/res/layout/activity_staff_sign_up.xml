@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".StaffLogIN" android:id="@+id/staffSignUP">
+        tools:context=".StaffSignUp" android:id="@+id/staffSignUP">
 
     <View
             android:layout_width="410dp"
@@ -16,8 +16,8 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="1.0"/>
     <View
-            android:layout_width="411dp"
-            android:layout_height="309dp" android:id="@+id/section1"
+            android:layout_width="414dp"
+            android:layout_height="234dp" android:id="@+id/section1"
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/rounder_corner"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -30,55 +30,80 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.355"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.243"
             android:textColor="#000000" android:id="@+id/textView8" android:textSize="25sp"
             android:fontFamily="sans-serif-condensed"
             android:textAlignment="center"/>
     <ImageView
-            android:layout_width="113dp"
-            android:layout_height="166dp" app:srcCompat="@drawable/logo" android:id="@+id/logo2"
+            android:layout_width="82dp"
+            android:layout_height="98dp" app:srcCompat="@drawable/logo" android:id="@+id/logo2"
             app:layout_constraintBottom_toBottomOf="@+id/section1"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="@+id/section1"
-            app:layout_constraintStart_toStartOf="@+id/section1" app:layout_constraintVertical_bias="0.419"
-            android:contentDescription="logo"/>
+            app:layout_constraintStart_toStartOf="@+id/section1" app:layout_constraintVertical_bias="0.27"
+            android:contentDescription="logo" app:layout_constraintHorizontal_bias="0.498"/>
     <Button
             android:text="Sign Up"
             android:layout_width="268dp"
-            android:layout_height="62dp" android:id="@+id/logIN"
+            android:layout_height="62dp" android:id="@+id/signUP"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.496" app:layout_constraintBottom_toBottomOf="@+id/pageBackground"
             app:layout_constraintVertical_bias="0.935" android:textColor="#FFFFFF"
             android:background="@drawable/orange_corner"
+            android:onClick="staffSignUp"
             android:paddingLeft="30dp" android:paddingRight="30dp" android:textAllCaps="false" android:textSize="16sp"
-            android:layout_marginTop="600dp"/>
+            android:layout_marginTop="616dp"/>
     <TextView
-            android:text="@string/username"
+            android:text="Staff Number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.132" app:layout_constraintVertical_bias="0.143"/>
+            app:layout_constraintHorizontal_bias="0.141" app:layout_constraintVertical_bias="0.056"/>
     <TextView
             android:text="@string/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView3"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
-            app:layout_constraintHorizontal_bias="0.132" app:layout_constraintVertical_bias="0.405"/>
+            app:layout_constraintHorizontal_bias="0.132" app:layout_constraintVertical_bias="0.585"/>
+    <TextView
+            android:text="Restaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
+            app:layout_constraintHorizontal_bias="0.134" app:layout_constraintVertical_bias="0.407"/>
+    <TextView
+            android:text="Staff Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
+            app:layout_constraintHorizontal_bias="0.135" app:layout_constraintVertical_bias="0.234"/>
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
-            android:inputType="textPersonName"
-            android:text="@string/name"
+            android:inputType="number"
             android:ems="10"
             android:drawablePadding="12dp"
-            android:drawableStart="@drawable/ic_person"
-            android:id="@+id/staffName"
+            android:drawableStart="@drawable/ic_baseline_add_24"
+            android:id="@+id/staffNum"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/section1" app:layout_constraintBottom_toBottomOf="@+id/section2"
-            app:layout_constraintVertical_bias="0.204" android:autofillHints="" android:textColorHighlight="#FF5722"
+            app:layout_constraintVertical_bias="0.107" android:autofillHints="" android:textColorHighlight="#FF5722"
             android:textColorLink="#FF5722"/>
+    <EditText
+            android:layout_width="319dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:id="@+id/staffName"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/section2" app:layout_constraintTop_toBottomOf="@+id/section1"
+            app:layout_constraintVertical_bias="0.293" android:autofillHints="" android:textColorHighlight="#FF5722"
+            android:textColorLink="#FF5722" android:inputType="textPersonName"
+            android:drawableStart="@drawable/ic_person"/>
     <EditText
             android:layout_width="319dp"
             android:layout_height="51dp"
@@ -86,9 +111,21 @@
             android:ems="10"
             android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic__password"
-            android:id="@+id/passWord"
+            android:id="@+id/passWord2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/section2" app:layout_constraintTop_toBottomOf="@+id/section1"
-            app:layout_constraintVertical_bias="0.491" android:autofillHints="" android:textColorHighlight="#FF5722"
+            app:layout_constraintVertical_bias="0.67" android:autofillHints="" android:textColorHighlight="#FF5722"
+            android:textColorLink="#FF5722"/>
+    <EditText
+            android:layout_width="319dp"
+            android:layout_height="51dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_restaurant"
+            android:id="@+id/restaurant"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/section2" app:layout_constraintTop_toBottomOf="@+id/section1"
+            app:layout_constraintVertical_bias="0.479" android:autofillHints="" android:textColorHighlight="#FF5722"
             android:textColorLink="#FF5722"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

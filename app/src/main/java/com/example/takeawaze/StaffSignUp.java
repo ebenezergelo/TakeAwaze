@@ -74,19 +74,31 @@ public class StaffSignUp extends AppCompatActivity {
         }
     }
     public void post(String STAFF_NUM,
-             String STAFF_NAME,
-             String RESTAURANT,
-             String STAFF_PASSWORD) throws IOException {
-       String url = "https://lamp.ms.wits.ac.za/home/s2345362/popstaff.php"+"?num"
-               +STAFF_NUM+"&name="+STAFF_NAME+"&rest="+RESTAURANT+"&pass="+STAFF_PASSWORD;
-        final String[] out = {""};
-       php.doRequest(this, url, new RequestHandle() {
-           @Override
-           public void processResponse(String response) throws JSONException {
-                out[0] = response;
-           }
-       });
-        Intent intent = new Intent(this, StaffLogIN.class);
+                     String STAFF_NAME,
+                     String RESTAURANT,
+                     String STAFF_PASSWORD) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://lamp.ms.wits.ac.za/home/s2345362/addStaff.php" + "?num="
+                        + STAFF_NUM + "&name=" + STAFF_NAME + "&rest=" + RESTAURANT + "&pass=" + STAFF_PASSWORD)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                e.printStackTrace();
+            }
+            
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                // ... check for failure using isSuccessful before proceeding
+                if (!response.isSuccessful()) {
+                    throw new IOException("Unexpected code " + response);
+                }
+                
+            }
+        });
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

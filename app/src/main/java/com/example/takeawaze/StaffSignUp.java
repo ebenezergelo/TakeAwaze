@@ -47,7 +47,7 @@ public class StaffSignUp extends AppCompatActivity {
                         post(staLoginNum, staLoginName, restaurantName, passW2);
                     } else {
                         Context context = getApplicationContext();
-                        CharSequence text = "Invalid restaurant name entered :(";
+                        CharSequence text = "Invalid password entered :(";
                         int duration = Toast.LENGTH_LONG;
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();

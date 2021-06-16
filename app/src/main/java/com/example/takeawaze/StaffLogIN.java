@@ -14,6 +14,7 @@ public class StaffLogIN extends AppCompatActivity {
     MainActivity m;
     ArrayList<Staff> staffs = m.staffs;
     public static Staff loggedStaff;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +26,8 @@ public class StaffLogIN extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
     }
-    public void staffLogIn(View v)
-    {
+
+    public void staffLogIn(View v) {
         boolean LoginToken = false;
         EditText n = (EditText) findViewById(R.id.staffNum);
         EditText p = (EditText) findViewById(R.id.staffName);
@@ -42,16 +43,17 @@ public class StaffLogIN extends AppCompatActivity {
                 loggedStaff = staffs.get(i);
                 break;
             }
-        } if (LoginToken) {
-        Intent intent = new Intent(this, StaffDashboard.class);
-        startActivity(intent);
-    } else {
-        Context context = getApplicationContext();
-        CharSequence text = "Invalid Login Details :(";
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-    }
+        }
+        if (LoginToken) {
+            Intent intent = new Intent(this, StaffDashboard.class);
+            startActivity(intent);
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "Invalid Login Details :(";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
 }

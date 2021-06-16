@@ -9,11 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
 
 import java.io.IOException;
 
 public class StaffSignUp extends AppCompatActivity {
     MainActivity m;
+    PHPRequest php = new PHPRequest();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,9 @@ public class StaffSignUp extends AppCompatActivity {
             if (staLoginName.length() <= 20 && staLoginName.length() > 0) {
                 if (restaurantName.length() <= 35 && restaurantName.length() > 0) {
                     if (passW2.length() <= 20 && passW2.length() > 0) {
-//                        post(staLoginNum, staLoginName, restaurantName, passW2);
+                        post(staLoginNum, staLoginName, restaurantName, passW2);
+                        Staff newStaff = new Staff(staLoginNum, staLoginName, restaurantName, passW2);
+                        m.staffs.add(newStaff);
                     } else {
                         Context context = getApplicationContext();
                         CharSequence text = "Invalid password entered :(";
@@ -68,6 +72,21 @@ public class StaffSignUp extends AppCompatActivity {
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
         }
-
+    }
+    public void post(String STAFF_NUM,
+             String STAFF_NAME,
+             String RESTAURANT,
+             String STAFF_PASSWORD) throws IOException {
+       String url = "https://lamp.ms.wits.ac.za/home/s2345362/popstaff.php"+"?num"
+               +STAFF_NUM+"&name="+STAFF_NAME+"&rest="+RESTAURANT+"&pass="+STAFF_PASSWORD;
+        final String[] out = {""};
+       php.doRequest(this, url, new RequestHandle() {
+           @Override
+           public void processResponse(String response) throws JSONException {
+                out[0] = response;
+           }
+       });
+        Intent intent = new Intent(this, StaffLogIN.class);
+        startActivity(intent);
     }
 }

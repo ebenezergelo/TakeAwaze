@@ -33,7 +33,7 @@ public class UserLogin extends AppCompatActivity {
         EditText p = (EditText) findViewById(R.id.userPhone);
         String custLoginName = n.getText().toString();
         String custLoginPhone = p.getText().toString();
-        if (custLoginName.length() <= 20) {
+        if (custLoginName.length() <= 20 && custLoginName.length() > 0) {
             String USER_PHONE = null;
             String USER_NAME = null;
             for (int i = 0; i < m.users.size(); i++) {

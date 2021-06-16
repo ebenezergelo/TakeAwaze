@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import java.io.IOException;
 public class StaffSignUp extends AppCompatActivity {
     MainActivity m;
     PHPRequest php = new PHPRequest();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,53 +55,50 @@ public class StaffSignUp extends AppCompatActivity {
                     Context context = getApplicationContext();
                     CharSequence text = "Invalid restaurant name entered :(";
                     int duration = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                }
-            } else {
-                Context context = getApplicationContext();
-                CharSequence text = "Invalid name entered :(";
-                int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+} else {
+        Context context = getApplicationContext();
+        CharSequence text = "Invalid name entered :(";
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        }
         } else {
-            Context context = getApplicationContext();
-            CharSequence text = "Invalid staff number entered :(";
-            int duration = Toast.LENGTH_LONG;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+        Context context = getApplicationContext();
+        CharSequence text = "Invalid staff number entered :(";
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
         }
     }
-
     public void post(String STAFF_NUM,
                      String STAFF_NAME,
                      String RESTAURANT,
                      String STAFF_PASSWORD) throws IOException {
-//        String url = "https://lamp.ms.wits.ac.za/home/s2345362/popstaff.php" + "?num"
-//                + STAFF_NUM + "&name=" + STAFF_NAME + "&rest=" + RESTAURANT + "&pass=" + STAFF_PASSWORD;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://lamp.ms.wits.ac.za/home/s2345362/addStaff.php" + "?num="
                         + STAFF_NUM + "&name=" + STAFF_NAME + "&rest=" + RESTAURANT + "&pass=" + STAFF_PASSWORD)
                 .build();
         client.newCall(request).enqueue(new Callback() {
-
+            
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
                 e.printStackTrace();
             }
-
+            
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                // ... check for failure using `isSuccessful` before proceeding
+                // ... check for failure using isSuccessful before proceeding
                 if (!response.isSuccessful()) {
                     throw new IOException("Unexpected code " + response);
                 }
-
+                
             }
         });
-        Intent intent = new Intent(this, StaffLogIN.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

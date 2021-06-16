@@ -35,21 +35,37 @@ public class StaffLogIN extends AppCompatActivity {
         String custLoginPhone = p.getText().toString();
         String STAFF_NAME = null;
         String STAFF_PASSWORD = null;
-        for (int i = 0; i < m.staffs.size(); i++) {
-            STAFF_NAME = m.staffs.get(i).STAFF_NAME;
-            STAFF_PASSWORD = m.staffs.get(i).STAFF_PASSWORD;
-            if (custLoginName.equals(STAFF_NAME) && custLoginPhone.equals(STAFF_PASSWORD)) {
-                LoginToken = true;
-                loggedStaff = staffs.get(i);
-                break;
+        if (custLoginName.length() <= 20 && custLoginName.length() > 0) {
+            if (custLoginPhone.length() <= 20 && custLoginPhone.length() > 0) {
+                for (int i = 0; i < m.staffs.size(); i++) {
+                    STAFF_NAME = m.staffs.get(i).STAFF_NAME;
+                    STAFF_PASSWORD = m.staffs.get(i).STAFF_PASSWORD;
+                    if (custLoginName.equals(STAFF_NAME) && custLoginPhone.equals(STAFF_PASSWORD)) {
+                        LoginToken = true;
+                        loggedStaff = staffs.get(i);
+                        break;
+                    }
+                }
+                if (LoginToken) {
+                    Intent intent = new Intent(this, StaffDashboard.class);
+                    startActivity(intent);
+                } else {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Invalid Login Details :(";
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
+            } else {
+                Context context = getApplicationContext();
+                CharSequence text = "Invalid password entered :(";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
-        }
-        if (LoginToken) {
-            Intent intent = new Intent(this, StaffDashboard.class);
-            startActivity(intent);
         } else {
             Context context = getApplicationContext();
-            CharSequence text = "Invalid Login Details :(";
+            CharSequence text = "Invalid username entered :(";
             int duration = Toast.LENGTH_LONG;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();

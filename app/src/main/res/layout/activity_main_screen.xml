@@ -60,7 +60,7 @@
             app:layout_constraintVertical_bias="0.935" android:textColor="#FFFFFF"
             android:background="@drawable/orange_corner"
             android:paddingLeft="30dp" android:paddingRight="30dp" android:textAllCaps="false" android:textSize="16sp"
-            android:layout_marginTop="600dp"/>
+            android:layout_marginTop="600dp" android:onClick="staffLogIn"/>
     <TextView
             android:text="@string/username"
             android:layout_width="wrap_content"

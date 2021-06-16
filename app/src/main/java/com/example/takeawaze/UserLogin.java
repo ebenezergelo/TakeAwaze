@@ -33,31 +33,39 @@ public class UserLogin extends AppCompatActivity {
         EditText p = (EditText) findViewById(R.id.userPhone);
         String custLoginName = n.getText().toString();
         String custLoginPhone = p.getText().toString();
-        if (custLoginName.length() <= 20 && custLoginName.length() > 0) {
-            String USER_PHONE = null;
-            String USER_NAME = null;
-            for (int i = 0; i < m.users.size(); i++) {
-                USER_NAME = m.users.get(i).USER_NAME;
-                USER_PHONE = m.users.get(i).USER_PHONE;
-                if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE)) {
-                    LoginToken = true;
-                    loggedUser = users.get(i);
-                    break;
+        if (custLoginPhone.length() == 10) {
+            if (custLoginName.length() <= 20 && custLoginName.length() > 0) {
+                String USER_PHONE = null;
+                String USER_NAME = null;
+                for (int i = 0; i < m.users.size(); i++) {
+                    USER_NAME = m.users.get(i).USER_NAME;
+                    USER_PHONE = m.users.get(i).USER_PHONE;
+                    if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE)) {
+                        LoginToken = true;
+                        loggedUser = users.get(i);
+                        break;
+                    }
                 }
-            }
-            if (LoginToken) {
-                Intent intent = new Intent(this, UserDashboard.class);
-                startActivity(intent);
+                if (LoginToken) {
+                    Intent intent = new Intent(this, UserDashboard.class);
+                    startActivity(intent);
+                } else {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Invalid Login Details :(";
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             } else {
                 Context context = getApplicationContext();
-                CharSequence text = "Invalid Login Details :(";
+                CharSequence text = "Invalid username entered :(";
                 int duration = Toast.LENGTH_LONG;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
         } else {
             Context context = getApplicationContext();
-            CharSequence text = "Invalid username entered :(";
+            CharSequence text = "Invalid phone number entered :(";
             int duration = Toast.LENGTH_LONG;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();

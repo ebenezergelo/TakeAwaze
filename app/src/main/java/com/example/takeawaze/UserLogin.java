@@ -14,6 +14,7 @@ public class UserLogin extends AppCompatActivity {
     MainActivity m;
     ArrayList<User> users = m.users;
     public static User loggedUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,32 +26,41 @@ public class UserLogin extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
     }
-    public void usrLogIn(View v)
-    {
+
+    public void usrLogIn(View v) {
         boolean LoginToken = false;
         EditText n = (EditText) findViewById(R.id.userName);
         EditText p = (EditText) findViewById(R.id.userPhone);
         String custLoginName = n.getText().toString();
         String custLoginPhone = p.getText().toString();
-        String USER_PHONE = null;
-        String USER_NAME = null;
-        for (int i = 0; i < m.users.size(); i++) {
-            USER_NAME = m.users.get(i).USER_NAME;
-            USER_PHONE = m.users.get(i).USER_PHONE;
-            if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE)) {
-                LoginToken = true;
-                loggedUser = users.get(i);
-                break;
+        if (custLoginName.length() <= 20) {
+            String USER_PHONE = null;
+            String USER_NAME = null;
+            for (int i = 0; i < m.users.size(); i++) {
+                USER_NAME = m.users.get(i).USER_NAME;
+                USER_PHONE = m.users.get(i).USER_PHONE;
+                if (custLoginName.equals(USER_NAME) && custLoginPhone.equals(USER_PHONE)) {
+                    LoginToken = true;
+                    loggedUser = users.get(i);
+                    break;
+                }
             }
-        } if (LoginToken) {
-        Intent intent = new Intent(this, UserDashboard.class);
-        startActivity(intent);
-    } else {
-        Context context = getApplicationContext();
-        CharSequence text = "Invalid Login Details :(";
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-    }
+            if (LoginToken) {
+                Intent intent = new Intent(this, UserDashboard.class);
+                startActivity(intent);
+            } else {
+                Context context = getApplicationContext();
+                CharSequence text = "Invalid Login Details :(";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "Invalid username entered :(";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 }

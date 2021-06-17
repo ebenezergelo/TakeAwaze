@@ -25,7 +25,7 @@
             app:layout_constraintVertical_bias="0.935" android:textColor="#FFFFFF"
             android:background="@drawable/orange_corner"
             android:paddingLeft="30dp" android:paddingRight="30dp" android:textAllCaps="false" android:textSize="16sp"
-            android:layout_marginTop="624dp"/>
+            android:layout_marginTop="624dp" android:onClick="onClick"/>
     <View
             android:layout_width="417dp"
             android:layout_height="200dp" android:id="@+id/section7"

@@ -31,7 +31,7 @@ public class UserDashboard extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
     
         for (int i = 0; i < orders.size(); i++) {
-            if (orders.get(i).USER_NAME.equals(user.USER_NAME))
+            if (orders.get(i).USER_NAME.equals(user.getUSER_NAME()))
             {
                 usrOrders.add(orders.get(i));
             }

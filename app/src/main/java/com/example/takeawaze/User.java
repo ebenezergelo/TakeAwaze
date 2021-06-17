@@ -9,7 +9,7 @@ public class User {
         this.USER_NAME = USER_NAME;
     }
 
-    public String getUSER_CELLNUM() {
+    public String getUSER_PHONE() {
         return USER_PHONE;
     }
 
@@ -17,7 +17,7 @@ public class User {
         return USER_NAME;
     }
 
-    public void setUSER_CELLNUM(String USER_PHONE) {
+    public void setUSER_PHONE(String USER_PHONE) {
         this.USER_PHONE = USER_PHONE;
     }
 

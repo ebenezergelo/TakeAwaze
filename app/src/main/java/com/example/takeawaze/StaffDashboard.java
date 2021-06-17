@@ -1,12 +1,12 @@
 package com.example.takeawaze;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StaffDashboard extends AppCompatActivity {
     MainActivity m;
@@ -24,30 +24,27 @@ public class StaffDashboard extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+        final ListView lv = (ListView) findViewById(R.id.list);
+        
         for (int i = 0; i < orders.size(); i++) {
-            if (orders.get(i).USER_NAME.equals(staff.getSTAFF_NAME()))
+            if (orders.get(i).STAFF_NAME.equals(staff.getSTAFF_NAME()))
             {
                 staffOrders.add(orders.get(i));
             }
         }
-        TextView text = new TextView(this);
-        LinearLayout layout = findViewById(R.id.scroll);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        params.setMargins(10, 10, 0, 10);
-        text.setLayoutParams(params);
-        String output ="";
-        layout.removeAllViews();
+        final ArrayList<String> output = new ArrayList<String>() {
+        };
         for (int i = 0; i < staffOrders.size(); i++) {
-            output = "Order Number: "+ staffOrders.get(i).getORDER_NUM()+'\n'+
+            output.add("Order Number: "+ staffOrders.get(i).getORDER_NUM()+'\n'+
                     "Customer Name: "+ staffOrders.get(i).getUSER_NAME()+'\n'+
                     "Staff Name: "+ staffOrders.get(i).getSTAFF_NAME()+'\n'+
                     "Restaurant: "+ staffOrders.get(i).getRESTAURANT()+'\n'+
                     "Order Status: "+ staffOrders.get(i).getSTATUS()+'\n'+
                     "Order Time: "+ staffOrders.get(i).getTIME()+'\n'+
-                    "Order rating: "+ staffOrders.get(i).isRATING();
-            text.setText(output);
-            layout.addView(text);
+                    "Order rating: "+ staffOrders.get(i).isRATING());
         }
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_1, output);
+        lv.setAdapter(arrayAdapter);
     }
 }

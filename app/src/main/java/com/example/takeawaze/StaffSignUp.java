@@ -96,14 +96,8 @@ public class StaffSignUp extends AppCompatActivity {
             
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-
                 // ... check for failure using isSuccessful before proceeding
                 if (!response.isSuccessful()) {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Staff account creation was successful :)";
-                    int duration = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
                     throw new IOException("Unexpected code " + response);
                 }
                 

@@ -41,15 +41,6 @@
             app:layout_constraintTop_toTopOf="@+id/section1"
             app:layout_constraintHorizontal_bias="0.067" app:layout_constraintVertical_bias="0.057"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="660dp"/>
-    <ScrollView
-            android:layout_width="414dp"
-            android:layout_height="533dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:id="@+id/userDashboard">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical"/>
-    </ScrollView>
     <ImageView
             android:layout_width="138dp"
             android:layout_height="154dp" app:srcCompat="@drawable/food" android:id="@+id/imageView2"
@@ -57,4 +48,10 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintVertical_bias="0.027"/>
+    <ListView
+            android:layout_width="409dp"
+            android:layout_height="525dp"
+            app:layout_constraintTop_toBottomOf="@+id/section"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

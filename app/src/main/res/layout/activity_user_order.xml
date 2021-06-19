@@ -248,7 +248,7 @@
             app:layout_constraintHorizontal_bias="0.307" app:layout_constraintVertical_bias="0.0"
             android:textSize="22sp" android:textColor="#FF5722"
             android:textAlignment="center" android:backgroundTint="#FFFFFF"
-            android:background="@drawable/rounder_corner"/>
+            android:background="@drawable/rounder_corner" android:onClick="like"/>
     <Button
             android:text="👎🏾"
             android:layout_width="40dp"
@@ -257,5 +257,5 @@
             android:layout_marginTop="412dp" app:layout_constraintTop_toBottomOf="@+id/section9"
             app:layout_constraintHorizontal_bias="0.703" android:textSize="22sp" android:backgroundTint="#FFFFFF"
             android:textColor="#FF5722" android:textAlignment="center"
-            android:background="@drawable/rounder_corner"/>
+            android:background="@drawable/rounder_corner" android:onClick="unlike"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

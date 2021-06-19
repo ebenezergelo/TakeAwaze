@@ -15,7 +15,7 @@ import java.io.IOException;
 public class UserOrder extends AppCompatActivity {
     UserDashboard u;
     Order order = u.rateOrder;
-    int ordRating;
+    int ordRating;//damn
     TextView rating;
     final int ordNum = order.getORDER_NUM();
     @Override

@@ -3,6 +3,9 @@ package com.example.takeawaze;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +20,7 @@ public class UserDashboard extends AppCompatActivity {
     UserLogin u;
     User user = u.loggedUser;
     ArrayList<Order> orders = m.orders;
+    public static Order rateOrder;
     ArrayList<Order> usrOrders = new ArrayList<>();
 
     @Override
@@ -30,45 +34,44 @@ public class UserDashboard extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
     
+        final ListView lv = (ListView) findViewById(R.id.list);
+    
         for (int i = 0; i < orders.size(); i++) {
-            if (orders.get(i).USER_NAME.equals(user.getUSER_NAME()))
+            if (orders.get(i).getUSER_NAME().equals(user.getUSER_NAME()))
             {
                 usrOrders.add(orders.get(i));
             }
         }
-        
-    }
-    public void post(String STAFF_NUM,
-                         String STAFF_NAME,
-                         String RESTAURANT,
-                         String STAFF_PASSWORD, String url) throws IOException {
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url("https://lamp.ms.wits.ac.za/home/s2345362/addStaff.php" + "?num="
-                        + STAFF_NUM + "&name=" + STAFF_NAME + "&rest=" + RESTAURANT + "&pass=" + STAFF_PASSWORD)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                Context context = getApplicationContext();
-                CharSequence text = "Staff account creation failed :(";
-                int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-                e.printStackTrace();
+        final ArrayList<String> output = new ArrayList<String>() {
+        };
+        for (int i = 0; i < usrOrders.size(); i++) {
+            String rating = "";
+            int r= usrOrders.get(i).isRATING();
+            if(r==1)
+            {
+                rating = "👍🏾";
+            }else
+            {
+                rating = "👎🏾";
             }
-            
+            output.add("Order Number: "+ usrOrders.get(i).getORDER_NUM()+'\n'+
+                    "Staff Name: "+ usrOrders.get(i).getSTAFF_NAME()+'\n'+
+                    "Restaurant: "+ usrOrders.get(i).getRESTAURANT()+'\n'+
+                    "Order Status: "+ usrOrders.get(i).getSTATUS()+'\n'+
+                    "Order Time: "+ usrOrders.get(i).getTIME()+'\n'+
+                    "Order rating: "+ rating);
+        }
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_1, output);
+        lv.setAdapter(arrayAdapter);
+        
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onResponse(Call call, final Response response) throws IOException {
-                // ... check for failure using isSuccessful before proceeding
-                if (!response.isSuccessful()) {
-                    throw new IOException("Unexpected code " + response);
-                }
-                
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                rateOrder = usrOrders.get(position);
+                Intent intent = new Intent(UserDashboard.this, UserOrder.class);
+                startActivity(intent);
             }
         });
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }

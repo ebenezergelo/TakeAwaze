@@ -1,5 +1,6 @@
 package com.example.takeawaze;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,16 +36,30 @@ public class StaffDashboard extends AppCompatActivity {
         final ArrayList<String> output = new ArrayList<String>() {
         };
         for (int i = 0; i < staffOrders.size(); i++) {
+            String rating = "";
+            int r= staffOrders.get(i).isRATING();
+           if(r==1)
+           {
+               rating = "👍🏾";
+           }else
+           {
+               rating = "👎🏾";
+           }
             output.add("Order Number: "+ staffOrders.get(i).getORDER_NUM()+'\n'+
                     "Customer Name: "+ staffOrders.get(i).getUSER_NAME()+'\n'+
                     "Staff Name: "+ staffOrders.get(i).getSTAFF_NAME()+'\n'+
                     "Restaurant: "+ staffOrders.get(i).getRESTAURANT()+'\n'+
                     "Order Status: "+ staffOrders.get(i).getSTATUS()+'\n'+
                     "Order Time: "+ staffOrders.get(i).getTIME()+'\n'+
-                    "Order rating: "+ staffOrders.get(i).isRATING());
+                    "Order rating: "+ rating);
         }
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, output);
         lv.setAdapter(arrayAdapter);
+    }
+    public void addOrder(View v)
+    {
+        Intent intent = new Intent(this, AddOrders.class);
+        startActivity(intent);
     }
 }
